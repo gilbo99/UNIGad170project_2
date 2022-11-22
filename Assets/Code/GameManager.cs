@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
             ShipList.Clear();
             SavedNames.Clear();
             UI.GetComponent<UISender>().EndGame();
-            Announce.text = "you win";
+            Announce.text = "you win, click Next in like to start again!!!";
 
         }
     }
