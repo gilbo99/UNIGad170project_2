@@ -8,15 +8,12 @@ public class CrewMate_Manager : MonoBehaviour
     public List<string> CrewMates;
     public List<string> CrewMatesHobbies;
     public List<string> AlienHobbies;
-    
-
-
     public bool IsAlien;
     public string CrewHire;
     public string CrewHobbies;
     public string AlienHobbie;
  
-
+/// sets all strings when the prebaf is made
     void Awake()
     {
         // Gets a random number and has a max from the list
@@ -34,7 +31,7 @@ public class CrewMate_Manager : MonoBehaviour
         }
     }
 
-
+    // sends a string too anything that calls GetAnnouncement
     public string GetAnnouncement()
     {
         if (IsAlien)
@@ -46,21 +43,11 @@ public class CrewMate_Manager : MonoBehaviour
         }
 
     }
-
+    // sends a bool when it is called 
     public bool ifAlien()
        {
         return IsAlien;
-       }
-
-
-       public void SaveName()
-       {
-
-       }
-
-    
-
-   
+       }  
 
 }
     

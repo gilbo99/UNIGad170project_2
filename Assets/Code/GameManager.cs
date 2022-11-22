@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     
 
     
-    
+    // just the win state and clears everything so you automatically play again
     void Update()
     {
         if(ShipList.Count == 10)
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
         }
     }
-    
+    // call a new perfab and asked what its name, if alien and gets the GetAnnouncement to print to the UI
     public void NewCrew()
     {
         if (has)
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         
        
     }
-
+    // saves the perfab too a list and saves it for the ui and sends it
     public void HireCrewMember()
     {
         
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         has = true;
         
         }
-        
+        // It removes a random crew member from the saved list if there 2 it removes 2. sends who died to the UI as well
         if (TempAlien)
         {
             Templist.RemoveAt(0);
@@ -81,14 +81,15 @@ public class GameManager : MonoBehaviour
             //hasDied.text = RemoveNameAT;
             SavedNames.RemoveAt(Crew1);
             ShipList.RemoveAt(Crew1);
-            UI.GetComponent<UISender>().RemoveName(RemoveNameAT);
+            UI.GetComponent<UISender>().RemoveName(RemoveNameAT , Crew1);
             if(ShipList.Count >= 1) 
             {
                 Crew2 = Random.Range(0,ShipList.Count);
                 RemoveNameAT2 = SavedNames[Crew2];
                 SavedNames.RemoveAt(Crew2);
                 ShipList.RemoveAt(Crew2);
-                UI.GetComponent<UISender>().RemoveName(RemoveNameAT2);
+                UI.GetComponent<UISender>().RemoveName(RemoveNameAT2, Crew2);
+
             }
             }
             UI.GetComponent<UISender>().UIhasDied(RemoveNameAT, RemoveNameAT2);
@@ -96,7 +97,7 @@ public class GameManager : MonoBehaviour
             has = true;
         }        
     }
-
+    // all this does is remove the gameobject from the temp list
     public void RejectCrewMember()
     {
         

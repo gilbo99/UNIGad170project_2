@@ -23,7 +23,7 @@ public class UISender : MonoBehaviour
    [SerializeField] TextMeshProUGUI hasDied;
    [SerializeField] TextMeshProUGUI hasDied2;
 
-   
+   // gets 2 strings to see who died and then put it on the UI
     public void UIhasDied(string Dead,string Dead2)
     { 
         if (Dead != "")
@@ -43,8 +43,8 @@ public class UISender : MonoBehaviour
     
     
     
-   
-     public void SetName()
+   // when you hire someone it puts it on the screen and goes down one by one
+     public void SetName()//string Crew, int location
     {
         //SetVar();
         
@@ -81,11 +81,16 @@ public class UISender : MonoBehaviour
         {
             Name10.text = CrewName;
         }
+
+          if(Name1.text =="")
+        {
+            
+        }
       
 
     }
 
-    // Update is called once per frame
+    // saves the most recent name into a list 
     public void SaveName(string Save)
     {
         SavingName = Save;
@@ -99,9 +104,11 @@ public class UISender : MonoBehaviour
         
         
     }
-    public void RemoveName(string Crew)
+    //when someone dies it gets the name and runs it through the list
+    public void RemoveName(string Crew, int location)
     {
-         
+        print(Name[location].ToString());
+        Name.RemoveAt(location);
 
         if(Name1.text ==Crew)
         {
@@ -137,7 +144,7 @@ public class UISender : MonoBehaviour
             Name10.text = "";
         }
 
-
+      
         
 
     }
